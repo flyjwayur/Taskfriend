@@ -1,7 +1,12 @@
 import React from 'react';
 
-const note = ({ task }) => {
-  return <div>{task}</div>;
+const note = ({ task, onDelete }) => {
+  return (
+    <div>
+      <span>{task}</span>
+      <button onClick={onDelete}>x</button>
+    </div>
+  );
 };
 
 export default note;
