@@ -1,14 +1,15 @@
 import React from 'react';
 import Note from '../Note/index';
+import Editable from '../Editable/index';
 
-const Notes = ({ notes, onDelete }) => {
+const Notes = ({ notes, onNoteClick, onEdit, onDelete }) => {
   return (
     <ul>
-      {notes.map(({ id, task }) => (
+      {notes.map(({ id, editing, task }) => (
         <li key={id}>
-          <Note>
-            <span>{task}</span>
-            <button type='button' onClick={e => onDelete(id, e)}>
+          <Note onClick={() => onNoteClick(id)}>
+            <Editable id={id} editing={editing} value={task} onEdit={onEdit} />
+            <button type='button' onClick={e => onDelete(e, id)}>
               x
             </button>
           </Note>
