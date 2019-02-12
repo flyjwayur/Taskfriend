@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Notes from './components/Notes/index';
-import notes from './data/notes';
+import Button from './components/Button/index';
 
+import notes from './data/notes';
 import uuid from 'uuid';
 
 import './App.css';
@@ -57,9 +58,13 @@ class App extends Component {
 
     return (
       <div>
-        <button type='button' onClick={this.addNote}>
-          +
-        </button>
+        <Button
+          type='button'
+          label='+'
+          onClick={this.addNote}
+          size='md'
+          variant='outlined'
+        />
         <Notes
           notes={notes}
           onNoteClick={this.activateNoteEdit}

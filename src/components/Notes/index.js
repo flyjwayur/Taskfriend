@@ -9,10 +9,10 @@ const Notes = ({ notes, onNoteClick, onEdit, onDelete }) => {
         <li key={id}>
           <Note onClick={() => onNoteClick(id)}>
             <Editable id={id} editing={editing} value={task} onEdit={onEdit} />
-            <button type='button' onClick={e => onDelete(e, id)}>
-              x
-            </button>
           </Note>
+          <button type='button' onClick={e => onDelete(e, id)}>
+            x
+          </button>
         </li>
       ))}
     </ul>

@@ -1,0 +1,124 @@
+$font-family: 'Karla', Roboto, -apple-system, BlinkMacSystemFont, Segoe UI,
+  Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+$font-family-secondary: Roboto, -apple-system, BlinkMacSystemFont, Segoe UI,
+  Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+
+// Playful Color which can bring good ideas
+$primary: #4484ce;
+$secondary: #f9cf00;
+$secondary-dark: #F19f4d;
+$third: #f19f4d;
+$light: white;
+$dark: black;
+$transparent-black-50: rgba(0, 0, 0, 0.5);
+$transparent-white-50: rgba(255, 255, 255, 0.5);
+$transparent-white-70: rgba(255, 255, 255, 0.7);
+
+$blog-text-color: #353535;
+$blog-underline: rgb(233, 233, 233);
+$blogPost-paragraph-color: #353535;
+$copyright: #cccccc;
+
+//Spacing
+$spacing-base: 16px;
+
+$spacing-00-25: $spacing-base * 0.25;
+$spacing-00-50: $spacing-base * 0.5;
+$spacing-00-75: $spacing-base * 0.75;
+$spacing-01: $spacing-base * 1;
+$spacing-01-25: $spacing-base * 1.25;
+$spacing-01-50: $spacing-base * 1.5;
+$spacing-02: $spacing-base * 2;
+$spacing-03: $spacing-base * 3;
+$spacing-04: $spacing-base * 4;
+$spacing-06: $spacing-base * 6;
+$spacing-08: $spacing-base * 8;
+$spacing-12: $spacing-base * 12;
+$spacing-16: $spacing-base * 16;
+$spacing-24: $spacing-base * 24;
+$spacing-32: $spacing-base * 32;
+$spacing-40: $spacing-base * 40;
+$spacing-48: $spacing-base * 48;
+
+$maximum-width: 1280px;
+
+// Z-index
+$menuBar-z-index: 9000;
+$sideBar-z-index: 10000;
+
+//breakpoints
+@mixin font-size-l-xxxx {
+  @include interpolate(
+    $properties: font-size,
+    $min-screen: 20rem,
+    $max-screen: 85.375rem,
+    $min-value: 1.802rem,
+    $max-value: 4.209rem
+  );
+}
+@mixin font-size-l-xxx {
+  @include interpolate(
+    $properties: font-size,
+    $min-screen: 20rem,
+    $max-screen: 85.375rem,
+    $min-value: 1.602rem,
+    $max-value: 3.157rem
+  );
+}
+@mixin font-size-l-xx {
+  @include interpolate(
+    $properties: font-size,
+    $min-screen: 20rem,
+    $max-screen: 85.375rem,
+    $min-value: 1.424rem,
+    $max-value: 2.369rem
+  );
+}
+@mixin font-size-l-x {
+  @include interpolate(
+    $properties: font-size,
+    $min-screen: 20rem,
+    $max-screen: 85.375rem,
+    $min-value: 1.266rem,
+    $max-value: 1.777rem
+  );
+}
+@mixin font-size-l {
+  @include interpolate(
+    $properties: font-size,
+    $min-screen: 20rem,
+    $max-screen: 85.375rem,
+    $min-value: 1.125rem,
+    $max-value: 1.333rem
+  );
+}
+@mixin font-size-m {
+  font-size: 1rem;
+}
+@mixin font-size-s {
+  @include interpolate(
+    $properties: font-size,
+    $min-screen: 20rem,
+    $max-screen: 85.375rem,
+    $min-value: 0.889rem,
+    $max-value: 0.75rem
+  );
+}
+@mixin font-size-s-x {
+  @include interpolate(
+    $properties: font-size,
+    $min-screen: 20rem,
+    $max-screen: 85.375rem,
+    $min-value: 0.79rem,
+    $max-value: 0.563rem
+  );
+}
+@mixin font-size-s-xx {
+  @include interpolate(
+    $properties: font-size,
+    $min-screen: 20rem,
+    $max-screen: 85.375rem,
+    $min-value: 0.702rem,
+    $max-value: 0.422rem
+  );
+}
