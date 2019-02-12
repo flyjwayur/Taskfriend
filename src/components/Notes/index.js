@@ -6,7 +6,12 @@ const Notes = ({ notes, onDelete }) => {
     <ul>
       {notes.map(({ id, task }) => (
         <li key={id}>
-          <Note task={task} onDelete={e => onDelete(id, e)} />
+          <Note>
+            <span>{task}</span>
+            <button type='button' onClick={e => onDelete(id, e)}>
+              x
+            </button>
+          </Note>
         </li>
       ))}
     </ul>
