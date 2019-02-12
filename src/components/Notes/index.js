@@ -1,7 +1,6 @@
 import React from 'react';
-import notes from '../../data/notes';
 
-const Notes = () => {
+const Notes = ({ notes }) => {
   return (
     <ul>
       {notes.map(note => (
