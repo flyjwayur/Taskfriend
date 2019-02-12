@@ -12,9 +12,10 @@ class App extends Component {
   };
 
   addNote = () => {
+    const { notes } = this.state;
     this.setState({
       notes: [
-        ...this.state.notes,
+        ...notes,
         {
           id: uuid.v4(),
           task: 'New task wow',
@@ -24,6 +25,7 @@ class App extends Component {
   };
 
   deleteNote = (id, e) => {
+    const { notes } = this.state;
     this.setState({
       notes: this.state.notes.filter(note => note.id !== id),
     });
@@ -34,7 +36,9 @@ class App extends Component {
 
     return (
       <div>
-        <button onClick={this.addNote}>+</button>
+        <button type='button' onClick={this.addNote}>
+          +
+        </button>
         <Notes notes={notes} onDelete={this.deleteNote} />
       </div>
     );
