@@ -1,4 +1,6 @@
-import React, { Component } from 'react';
+import React, {
+  Component
+} from 'react';
 import Notes from './components/Notes/index';
 import Button from './components/Button/index';
 
@@ -54,24 +56,36 @@ class App extends Component {
   };
 
   render() {
-    const { notes } = this.state;
+    const {
+      notes
+    } = this.state;
 
-    return (
-      <div>
-        <Button
-          type='button'
-          label='+'
-          onClick={this.addNote}
-          size='md'
-          variant='outlined'
-        />
-        <Notes
-          notes={notes}
-          onNoteClick={this.activateNoteEdit}
-          onEdit={this.editNote}
-          onDelete={this.deleteNote}
-        />
-      </div>
+    return ( <
+      div >
+      <
+      Button type = 'button'
+      label = '+'
+      onClick = {
+        this.addNote
+      }
+      size = 'sm'
+      variant = 'outlined' /
+      >
+      <
+      Notes notes = {
+        notes
+      }
+      onNoteClick = {
+        this.activateNoteEdit
+      }
+      onEdit = {
+        this.editNote
+      }
+      onDelete = {
+        this.deleteNote
+      }
+      /> < /
+      div >
     );
   }
 }

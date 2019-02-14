@@ -4,34 +4,22 @@
 .button {
   display: inline-block;
   text-align: center;
-  margin: 0;
   padding: 0.75rem;
-  border: 2px solid blue;
+  border: 2px solid $primary;
   color: $primary;
   border-radius: 16px;
-  font-size: 1.2rem;
-  font-weight: 700;
-  letter-spacing: 2px;
   transition: all 0.2s;
   cursor: pointer;
 
-  @include for-tablet-landscape-down {
-    width: 10rem;
-    @include font-size-m;
-  }
-
-  &:hover {
+  /* Pseudo-classes */
+  &:hover,
+  &:active {
     background-color: $primary;
     color: $light;
   }
 
   &:focus {
     outline: none;
-  }
-
-  @include for-tablet-portrait-down {
-    width: 10rem;
-    @include font-size-m;
   }
 
   /* Size */
@@ -65,12 +53,13 @@
   &--outlined {
     border: 1px solid $transparent-black-50;
     background-color: transparent;
+
     &:hover {
       border-color: $primary;
     }
   }
 
   &____text {
-    font-size: 1.2rem;
+    @include font-size-l;
   }
 }
