@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import uuid from 'uuid';
 import Notes from './components/Notes/index';
 import Button from './components/Button/index';
 
 import notes from './data/notes';
-import uuid from 'uuid';
 
-import './App.css';
+import "./App.css";
 
 class App extends Component {
   state = {
-    notes,
+    notes
   };
 
   addNote = () => {
@@ -18,15 +18,15 @@ class App extends Component {
         ...this.state.notes,
         {
           id: uuid.v4(),
-          task: 'New task wow',
-        },
-      ],
+          task: "New task wow"
+        }
+      ]
     });
   };
 
   deleteNote = (e, id) => {
     this.setState({
-      notes: this.state.notes.filter(note => note.id !== id),
+      notes: this.state.notes.filter(note => note.id !== id)
     });
   };
 
@@ -37,7 +37,7 @@ class App extends Component {
           note.editing = true;
         }
         return note;
-      }),
+      })
     });
   };
 
@@ -49,7 +49,7 @@ class App extends Component {
           note.task = task;
         }
         return note;
-      }),
+      })
     });
   };
 
@@ -59,18 +59,18 @@ class App extends Component {
     return (
       <div>
         <Button
-          type='button'
-          label='+'
+          type="button"
+          label="+"
           onClick={this.addNote}
-          size='md'
-          variant='outlined'
+          size="sm"
+          variant="outlined"
         />
         <Notes
           notes={notes}
           onNoteClick={this.activateNoteEdit}
           onEdit={this.editNote}
           onDelete={this.deleteNote}
-        />
+        />{" "}
       </div>
     );
   }

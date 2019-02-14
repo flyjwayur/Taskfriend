@@ -1,42 +1,30 @@
-import React, {
-  Component
-} from 'react';
+import React, { Component } from "react";
+import classNames from "classnames";
+import "./styles.scss";
 
-const Editable = ({
-  editing,
-  value,
-  onEdit,
-  ...props
-}) => {
+const Editable = ({ editing, value, onEdit, className, ...props }) => {
   if (editing) {
-    return <Editable.Edit value = {
-      value
-    }
-    onEdit = {
-      onEdit
-    } {
-      ...props
-    }
-    />;
+    return (
+      <Editable.Edit
+        value={value}
+        onEdit={onEdit}
+        className={className}
+        {...props}
+      />
+    );
   }
-  return <Editable.Value value = {
-    value
-  }
-  />;
+  return <Editable.Value className={className} value={value} />;
 };
 
-Editable.Value = ({
-  value,
-  ...props
-}) => < span {
-  ...props
-} > {
-  value
-} < /span>;
+Editable.Value = ({ value, className, ...props }) => (
+  <span className={classNames("editable__value", className)} {...props}>
+    {value}
+  </span>
+);
 
 class Edit extends Component {
   checkEnter = e => {
-    if (e.key === 'Enter') {
+    if (e.key === "Enter") {
       this.finishEdit(e);
     }
   };
@@ -49,28 +37,17 @@ class Edit extends Component {
   };
 
   render() {
-    const {
-      value,
-      onEdit,
-      ...props
-    } = this.props;
+    const { value, onEdit, className, ...props } = this.props;
 
-    return ( <
-      input type = 'text'
-      autoFocus = {
-        true
-      }
-      defaultValue = {
-        value
-      }
-      onBlur = {
-        this.finishEdit
-      }
-      onKeyPress = {
-        this.checkEnter
-      } {
-        ...props
-      }
+    return (
+      <input
+        type="text"
+        autoFocus
+        defaultValue={value}
+        onBlur={this.finishEdit}
+        onKeyPress={this.checkEnter}
+        className={classNames("editable__edit", className)}
+        {...props}
       />
     );
   }

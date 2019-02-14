@@ -1,0 +1,45 @@
+@import '../../assets/styles/_variables.scss';
+@import '../../assets/styles/_mixins.scss';
+
+.notes {
+  margin: 0.5rem;
+  padding: 1rem;
+  border-radius: 8px;
+  //Considering when a user type long text
+  max-width: 15rem;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $primary;
+
+  &__note {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: lighten($secondary, 15%);
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+
+    &:hover &__delete-button {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    &__delete-button {
+      @include font-size-l;
+      background-color: $white;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity .6s;
+
+    }
+
+  }
+
+}

@@ -1,16 +1,22 @@
-import React from 'react';
-import Note from '../Note/index';
-import Editable from '../Editable/index';
+import React from "react";
+import Note from "../Note/index";
+import Editable from "../Editable/index";
+
+import "./styles.scss";
 
 const Notes = ({ notes, onNoteClick, onEdit, onDelete }) => {
   return (
-    <ul>
+    <ul className="notes">
       {notes.map(({ id, editing, task }) => (
-        <li key={id}>
+        <li className="notes__note" key={id}>
           <Note onClick={() => onNoteClick(id)}>
             <Editable id={id} editing={editing} value={task} onEdit={onEdit} />
           </Note>
-          <button type='button' onClick={e => onDelete(e, id)}>
+          <button
+            type="button"
+            className="notes__note__delete-button"
+            onClick={e => onDelete(e, id)}
+          >
             x
           </button>
         </li>

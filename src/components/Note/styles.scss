@@ -1,0 +1,18 @@
+@import '../../assets/styles/_variables.scss';
+@import '../../assets/styles/_mixins.scss';
+
+.note {
+  overflow: auto;
+  margin-right: 0.5rem;
+  padding: 0.5rem;
+  background-color: $transparent-white-50;
+  box-shadow: 0 0 0.3rem 0.03rem rgba(0, 0, 0, .3);
+  //To get min-height
+  display: inline-block;
+  transition: .6s;
+
+  &:hover,
+  &:focus {
+    box-shadow: 0 0 0.3rem .03rem rgba(0, 0, 0, .7);
+  }
+}
