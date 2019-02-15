@@ -1,11 +1,11 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import uuid from 'uuid';
 import Notes from './components/Notes/index';
 import Button from './components/Button/index';
 
 import notes from './data/notes';
 
-import "./App.css";
+import './App.css';
 
 class App extends Component {
   state = {
@@ -18,7 +18,7 @@ class App extends Component {
         ...this.state.notes,
         {
           id: uuid.v4(),
-          task: "New task wow"
+          task: 'New task wow'
         }
       ]
     });
@@ -58,19 +58,13 @@ class App extends Component {
 
     return (
       <div>
-        <Button
-          type="button"
-          label="+"
-          onClick={this.addNote}
-          size="sm"
-          variant="outlined"
-        />
+        <Button type="button" label="+" onClick={this.addNote} size="md" variant="outlined" />
         <Notes
           notes={notes}
           onNoteClick={this.activateNoteEdit}
           onEdit={this.editNote}
           onDelete={this.deleteNote}
-        />{" "}
+        />
       </div>
     );
   }

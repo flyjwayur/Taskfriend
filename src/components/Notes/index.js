@@ -1,8 +1,8 @@
-import React from "react";
-import Note from "../Note/index";
-import Editable from "../Editable/index";
+import React from 'react';
+import Note from '../Note/index';
+import Editable from '../Editable/index';
 
-import "./styles.scss";
+import './styles.scss';
 
 const Notes = ({ notes, onNoteClick, onEdit, onDelete }) => {
   return (
@@ -12,11 +12,7 @@ const Notes = ({ notes, onNoteClick, onEdit, onDelete }) => {
           <Note onClick={() => onNoteClick(id)}>
             <Editable id={id} editing={editing} value={task} onEdit={onEdit} />
           </Note>
-          <button
-            type="button"
-            className="notes__note__delete-button"
-            onClick={e => onDelete(e, id)}
-          >
+          <button type="button" onClick={e => onDelete(e, id)}>
             x
           </button>
         </li>
