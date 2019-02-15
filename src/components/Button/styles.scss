@@ -65,6 +65,7 @@
   &--outlined {
     border: 1px solid $transparent-black-50;
     background-color: transparent;
+
     &:hover {
       border-color: $primary;
     }

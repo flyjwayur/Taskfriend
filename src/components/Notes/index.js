@@ -10,7 +10,7 @@ const Notes = ({ notes, onNoteClick, onEdit, onDelete }) => {
           <Note onClick={() => onNoteClick(id)}>
             <Editable id={id} editing={editing} value={task} onEdit={onEdit} />
           </Note>
-          <button type='button' onClick={e => onDelete(e, id)}>
+          <button type="button" onClick={e => onDelete(e, id)}>
             x
           </button>
         </li>
