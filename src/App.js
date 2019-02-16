@@ -1,11 +1,12 @@
+
 import React, { Component } from "react";
 import uuid from 'uuid';
 import Notes from './components/Notes/index';
 import Button from './components/Button/index';
-
 import notes from './data/notes';
 
 import "./App.css";
+
 
 class App extends Component {
   state = {
@@ -70,7 +71,7 @@ class App extends Component {
           onNoteClick={this.activateNoteEdit}
           onEdit={this.editNote}
           onDelete={this.deleteNote}
-        />{" "}
+        />
       </div>
     );
   }

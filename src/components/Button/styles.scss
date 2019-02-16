@@ -25,17 +25,14 @@
   /* Size */
   &--sm {
     @include size(2rem, 1rem, $spacing-00-75);
-    @include font-size-s;
   }
 
   &--md {
     @include size(4rem, 1.5rem, $spacing-01);
-    @include font-size-m;
   }
 
   &--lg {
     @include size(6rem, 2rem, $spacing-01-50);
-    @include font-size-l;
   }
 
   /* Colors */

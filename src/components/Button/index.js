@@ -10,7 +10,7 @@ const Button = ({ label, type, onClick, color, size, className }) => {
       onClick={onClick}
       className={classNames('button', `button--${color}`, `button--${size}`, className)}
     >
-      <span className='button__label'> {label} </span>
+      <span className="button__label"> {label} </span>
     </button>
   );
 };
