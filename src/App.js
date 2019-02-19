@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import uuid from 'uuid';
 import Notes from './components/Notes/index';
 import Button from './components/Button/index';
+import TodoApp from './components/TodoApp/index';
 
 import notes from './data/notes';
-
 import './App.css';
 
 class App extends Component {
@@ -65,6 +65,8 @@ class App extends Component {
           onEdit={this.editNote}
           onDelete={this.deleteNote}
         />
+        {/* Pass all states fields as props */}
+        <TodoApp />
       </div>
     );
   }
