@@ -65,7 +65,6 @@ class App extends Component {
           onEdit={this.editNote}
           onDelete={this.deleteNote}
         />
-        {/* Pass all states fields as props */}
         <TodoApp />
       </div>
     );

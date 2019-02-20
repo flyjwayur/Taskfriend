@@ -1,3 +1,5 @@
+import { VisibilityFilters } from '../actions/setVisibilityFilterAction';
+
 const todo = (state, action) => {
   switch (action.type) {
     case 'ADD_TODO':
@@ -7,13 +9,13 @@ const todo = (state, action) => {
         completed: false
       };
     case 'TOGGLE_TODO':
-      if (state.id !== action.id) {
-        return state;
+      if (state.id === action.id) {
+        return {
+          ...state,
+          completed: !state.completed
+        };
       }
-      return {
-        ...state,
-        completed: !state.completed
-      };
+      return state;
     default:
       return state;
   }
@@ -30,7 +32,7 @@ export const todos = (state = [], action) => {
   }
 };
 
-export const visibilityFilter = (state = 'SHOW_ALL', action) => {
+export const visibilityFilter = (state = VisibilityFilters.SHOW_ALL, action) => {
   switch (action.type) {
     case 'SET_VISIBILITY_FILTER':
       return action.filter;

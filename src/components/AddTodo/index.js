@@ -7,19 +7,20 @@ const AddTodo = ({ dispatch }) => {
 
   return (
     <div>
-      <input
-        ref={node => {
-          input = node;
-        }}
-      />
-      <button
-        onClick={() => {
+      <form
+        onSubmit={e => {
+          e.preventDefault();
+          //Prevent from submitting empty input
+          if (!input.value.trim()) {
+            return;
+          }
           dispatch(addTodo(input.value));
           input.value = '';
         }}
       >
-        Add todo
-      </button>
+        <input ref={node => (input = node)} />
+        <button type="submit">Add Todo</button>
+      </form>
     </div>
   );
 };
