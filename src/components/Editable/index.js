@@ -1,18 +1,22 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
+import { connect } from 'react-redux';
+
+import { editTaskNote } from '../../store/actions/editTaskNoteAction';
+
 import './styles.scss';
 
-const Editable = ({ editing, value, onEdit, className, ...props }) => {
+const Editable = ({ editing, id, value, className, onEditTaskNote }) => {
   if (editing) {
-    return <Editable.Edit value={value} onEdit={onEdit} className={className} {...props} />;
+    return (
+      <Editable.Edit id={id} value={value} className={className} onEditTaskNote={onEditTaskNote} />
+    );
   }
   return <Editable.Value className={className} value={value} />;
 };
 
-Editable.Value = ({ value, className, ...props }) => (
-  <span className={classNames('editable__value', className)} {...props}>
-    {value}
-  </span>
+Editable.Value = ({ value, className }) => (
+  <span className={classNames('editable__value', className)}>{value}</span>
 );
 
 class Edit extends Component {
@@ -24,13 +28,13 @@ class Edit extends Component {
 
   finishEdit = e => {
     const value = e.target.value;
-    if (this.props.onEdit) {
-      this.props.onEdit(this.props.id, value);
+    if (this.props.onEditTaskNote) {
+      this.props.onEditTaskNote(this.props.id, value);
     }
   };
 
   render() {
-    const { value, onEdit, className, ...props } = this.props;
+    const { value, className } = this.props;
 
     return (
       <input
@@ -40,7 +44,6 @@ class Edit extends Component {
         onBlur={this.finishEdit}
         onKeyPress={this.checkEnter}
         className={classNames('editable__edit', className)}
-        {...props}
       />
     );
   }
@@ -48,4 +51,15 @@ class Edit extends Component {
 
 Editable.Edit = Edit;
 
-export default Editable;
+const mapDispatchToEditableProps = dispatch => {
+  return {
+    onEditTaskNote: (id, task) => {
+      dispatch(editTaskNote(id, task));
+    }
+  };
+};
+
+export default connect(
+  null,
+  mapDispatchToEditableProps
+)(Editable);
