@@ -1,6 +1,6 @@
 import uuid from 'uuid';
 
-const taskNotes = [
+const notes = [
   {
     id: uuid.v4(),
     task: 'BrainStorm task by drawing, writing'
@@ -11,4 +11,4 @@ const taskNotes = [
   }
 ];
 
-export default taskNotes;
+export default notes;

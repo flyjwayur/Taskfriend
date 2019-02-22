@@ -1,24 +1,35 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import uuid from 'uuid';
 
 import Note from '../Note/index';
 import Editable from '../Editable/index';
 import Button from '../Button/index';
-import { deleteTaskNote } from '../../store/actions/deleteTaskNoteAction';
-import { addTaskNote } from '../../store/actions/addTaskNoteAction';
-import { activateEditTaskNote } from '../../store/actions/activateEditTaskNoteAction';
 
 import './styles.scss';
 
-const Notes = ({ taskNotes, onAddTaskNote, onActivateEditTaskNote, onDeleteTaskNote }) => {
+const Notes = ({
+  laneId,
+  notes,
+  onAddNote,
+  onAttachNoteToLane,
+  onActivateEditNote,
+  onDeleteNote
+}) => {
+  const noteId = uuid.v4();
+  const addAndAttachItToLane = e => {
+    e.stopPropagation();
+    onAddNote(noteId, 'New task wow');
+    onAttachNoteToLane(laneId, noteId);
+  };
+
   return (
     <ul className="notes">
-      {taskNotes.map(({ id, editing, task }) => (
+      {notes.map(({ id, editing, task }) => (
         <li className="notes__note" key={id}>
-          <Note onClick={() => onActivateEditTaskNote(id)}>
+          <Note onClick={() => onActivateEditNote(id)}>
             <Editable id={id} editing={editing} value={task} />
           </Note>
-          <button type="button" onClick={() => onDeleteTaskNote(id)}>
+          <button type="button" onClick={() => onDeleteNote(id)}>
             x
           </button>
         </li>
@@ -27,32 +38,11 @@ const Notes = ({ taskNotes, onAddTaskNote, onActivateEditTaskNote, onDeleteTaskN
         type="button"
         label="+"
         size="md"
-        onClick={() => onAddTaskNote('New task wow')}
+        onClick={e => addAndAttachItToLane(e)}
         variant="outlined"
       />
     </ul>
   );
 };
 
-const mapStateToNotesProps = state => {
-  return { taskNotes: state.taskNotes };
-};
-
-const mapDispatchToNotesProps = dispatch => {
-  return {
-    onAddTaskNote: task => {
-      dispatch(addTaskNote(task));
-    },
-    onActivateEditTaskNote: id => {
-      dispatch(activateEditTaskNote(id));
-    },
-    onDeleteTaskNote: id => {
-      dispatch(deleteTaskNote(id));
-    }
-  };
-};
-
-export default connect(
-  mapStateToNotesProps,
-  mapDispatchToNotesProps
-)(Notes);
+export default Notes;

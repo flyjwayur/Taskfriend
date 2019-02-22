@@ -2,15 +2,14 @@ import React, { Component } from 'react';
 import classNames from 'classnames';
 import { connect } from 'react-redux';
 
-import { editTaskNote } from '../../store/actions/editTaskNoteAction';
+import { editNote } from '../../store/actions/editNoteAction';
 
 import './styles.scss';
 
-const Editable = ({ editing, id, value, className, onEditTaskNote }) => {
+const Editable = ({ editing, id, value, className, onEditNote }) => {
+  console.log('from editable', editing);
   if (editing) {
-    return (
-      <Editable.Edit id={id} value={value} className={className} onEditTaskNote={onEditTaskNote} />
-    );
+    return <Editable.Edit id={id} value={value} className={className} onEditNote={onEditNote} />;
   }
   return <Editable.Value className={className} value={value} />;
 };
@@ -28,8 +27,8 @@ class Edit extends Component {
 
   finishEdit = e => {
     const value = e.target.value;
-    if (this.props.onEditTaskNote) {
-      this.props.onEditTaskNote(this.props.id, value);
+    if (this.props.onEditNote) {
+      this.props.onEditNote(this.props.id, value);
     }
   };
 
@@ -53,8 +52,8 @@ Editable.Edit = Edit;
 
 const mapDispatchToEditableProps = dispatch => {
   return {
-    onEditTaskNote: (id, task) => {
-      dispatch(editTaskNote(id, task));
+    onEditNote: (id, task) => {
+      dispatch(editNote(id, task));
     }
   };
 };
