@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Notes from '../Notes/index';
+import LaneHeader from '../LaneHeader/index';
 import { deleteNote } from '../../store/actions/deleteNoteAction';
 import { addNote } from '../../store/actions/addNoteAction';
 import { activateEditNote } from '../../store/actions/activateEditNoteAction';
@@ -20,9 +21,7 @@ const Lane = ({
 }) => {
   return (
     <div {...props}>
-      <div className="lane__header">
-        <div className="lane__name">{lane.name}</div>
-      </div>
+      <LaneHeader lane={lane} />
       <Notes
         laneId={lane.id}
         notes={filteredNotesById(notes, lane.notes)}
