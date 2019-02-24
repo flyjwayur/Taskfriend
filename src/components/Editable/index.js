@@ -7,7 +7,6 @@ import { editNote } from '../../store/actions/editNoteAction';
 import './styles.scss';
 
 const Editable = ({ editing, id, value, className, onEditNote }) => {
-  console.log('from editable', editing);
   if (editing) {
     return <Editable.Edit id={id} value={value} className={className} onEditNote={onEditNote} />;
   }

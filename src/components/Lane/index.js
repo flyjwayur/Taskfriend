@@ -6,7 +6,7 @@ import { deleteNote } from '../../store/actions/deleteNoteAction';
 import { addNote } from '../../store/actions/addNoteAction';
 import { activateEditNote } from '../../store/actions/activateEditNoteAction';
 import { attachNoteToLane } from '../../store/actions/attachNoteToLaneAction';
-import { map } from 'rsvp';
+import { detachNoteFromLane } from '../../store/actions/detachNoteFromLaneAction';
 
 const Lane = ({
   lane,
@@ -15,9 +15,9 @@ const Lane = ({
   onActivateEditNote,
   onDeleteNote,
   onAttachNoteToLane,
+  onDetachNoteFromLane,
   ...props
 }) => {
-  console.log('test', filteredNotesById(notes, lane.notes));
   return (
     <div {...props}>
       <div className="lane__header">
@@ -30,6 +30,7 @@ const Lane = ({
         onAttachNoteToLane={onAttachNoteToLane}
         onActivateEditNote={onActivateEditNote}
         onDeleteNote={onDeleteNote}
+        onDetachNoteFromLane={onDetachNoteFromLane}
       />
     </div>
   );
@@ -74,6 +75,9 @@ const mapDispatchToNotesProps = dispatch => {
     },
     onAttachNoteToLane: (laneId, noteId) => {
       dispatch(attachNoteToLane(laneId, noteId));
+    },
+    onDetachNoteFromLane: (laneId, noteId) => {
+      dispatch(detachNoteFromLane(laneId, noteId));
     }
   };
 };

@@ -15,11 +15,9 @@ export const notes = (state = initialNoteState, action) => {
         }
       ];
     case ACTIVATE_EDIT_NOTE:
-      console.log('activate edit');
       return state.map(note => {
         if (note.id === action.id) {
           note.editing = true;
-          console.log('note.editing', note.editing);
         }
         return note;
       });

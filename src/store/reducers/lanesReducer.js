@@ -1,4 +1,4 @@
-import { ADD_LANE, ATTACH_NOTE_TO_LANE } from '../actions/actionTypes';
+import { ADD_LANE, ATTACH_NOTE_TO_LANE, DETACH_NOTE_FROM_LANE } from '../actions/actionTypes';
 
 const initialLanesState = [];
 
@@ -31,6 +31,13 @@ export const lanes = (state = initialLanesState, action) => {
         }
         if (lane.id === laneId) {
           lane.notes = lane.notes.concat([noteId]);
+        }
+        return lane;
+      });
+    case DETACH_NOTE_FROM_LANE:
+      return state.map(lane => {
+        if (action.laneId === laneId) {
+          lane.notes = lane.notes.filter(note => note !== action.noteId);
         }
         return lane;
       });

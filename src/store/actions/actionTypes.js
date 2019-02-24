@@ -10,6 +10,7 @@ export const DELETE_NOTE = 'DELETE_NOTE';
 export const FETCH_LANE = 'FETCH_LANE';
 export const ADD_LANE = 'ADD_LANE';
 export const ATTACH_NOTE_TO_LANE = 'ATTACH_NOTE_TO_LANE';
+export const DETACH_NOTE_FROM_LANE = 'DETACH_NOTE_FROM_LANE';
 
 //Todo related action types
 export const ADD_TODO = 'ADD_TODO';

@@ -13,13 +13,20 @@ const Notes = ({
   onAddNote,
   onAttachNoteToLane,
   onActivateEditNote,
-  onDeleteNote
+  onDeleteNote,
+  onDetachNoteFromLane
 }) => {
   const noteId = uuid.v4();
   const addAndAttachItToLane = e => {
     e.stopPropagation();
     onAddNote(noteId, 'New task wow');
     onAttachNoteToLane(laneId, noteId);
+  };
+
+  const deleteAndDetachNoteFromLane = (noteId, e) => {
+    e.stopPropagation();
+    onDeleteNote(noteId);
+    onDetachNoteFromLane(laneId, noteId);
   };
 
   return (
@@ -29,7 +36,7 @@ const Notes = ({
           <Note onClick={() => onActivateEditNote(id)}>
             <Editable id={id} editing={editing} value={task} />
           </Note>
-          <button type="button" onClick={() => onDeleteNote(id)}>
+          <button type="button" onClick={e => deleteAndDetachNoteFromLane(id, e)}>
             x
           </button>
         </li>
