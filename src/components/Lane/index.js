@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import Notes from '../Notes/index';
-import LaneHeader from '../LaneHeader/index';
+import Notes from '../Notes';
+import LaneHeader from '../LaneHeader';
 import { deleteNote } from '../../store/actions/deleteNoteAction';
 import { addNote } from '../../store/actions/addNoteAction';
 import { activateEditNote } from '../../store/actions/activateEditNoteAction';

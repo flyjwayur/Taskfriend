@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import TodoApp from './components/TodoApp/index';
-import Lanes from './components/Lanes/index';
-import Button from './components/Button/index';
+import TodoApp from './components/TodoApp';
+import Lanes from './components/Lanes';
+import Button from './components/Button';
 import { addLane } from './store/actions/addLaneAction';
 import notes from './api/notes';
 

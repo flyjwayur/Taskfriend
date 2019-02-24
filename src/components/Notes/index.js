@@ -1,9 +1,9 @@
 import React from 'react';
 import uuid from 'uuid';
 
-import Note from '../Note/index';
-import Editable from '../Editable/index';
-import Button from '../Button/index';
+import Note from '../Note';
+import Editable from '../Editable';
+import Button from '../Button';
 
 import './styles.scss';
 

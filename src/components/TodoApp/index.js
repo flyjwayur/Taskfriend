@@ -1,7 +1,7 @@
 import React from 'react';
-import VisibleTodoList from '../VisibleTodoList/index';
-import AddTodo from '../AddTodo/index';
-import TodoFilterLinks from '../TodoFilterLinks/index';
+import VisibleTodoList from '../VisibleTodoList';
+import AddTodo from '../AddTodo';
+import TodoFilterLinks from '../TodoFilterLinks';
 
 const TodoApp = () => (
   <div>
