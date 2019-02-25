@@ -6,6 +6,7 @@ import LaneHeader from '../LaneHeader';
 import { deleteNote } from '../../store/actions/deleteNoteAction';
 import { addNote } from '../../store/actions/addNoteAction';
 import { activateEditNote } from '../../store/actions/activateEditNoteAction';
+import { editNote } from '../../store/actions/editNoteAction';
 import { attachNoteToLane } from '../../store/actions/attachNoteToLaneAction';
 import { detachNoteFromLane } from '../../store/actions/detachNoteFromLaneAction';
 
@@ -14,6 +15,7 @@ const Lane = ({
   notes,
   onAddNote,
   onActivateEditNote,
+  onEditNote,
   onDeleteNote,
   onAttachNoteToLane,
   onDetachNoteFromLane,
@@ -28,6 +30,7 @@ const Lane = ({
         onAddNote={onAddNote}
         onAttachNoteToLane={onAttachNoteToLane}
         onActivateEditNote={onActivateEditNote}
+        onEditNote={onEditNote}
         onDeleteNote={onDeleteNote}
         onDetachNoteFromLane={onDetachNoteFromLane}
       />
@@ -68,6 +71,9 @@ const mapDispatchToNotesProps = dispatch => {
     },
     onActivateEditNote: id => {
       dispatch(activateEditNote(id));
+    },
+    onEditNote: (id, task) => {
+      dispatch(editNote(id, task));
     },
     onDeleteNote: id => {
       dispatch(deleteNote(id));

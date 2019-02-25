@@ -1,0 +1,16 @@
+@import '../../assets/styles/_variables.scss';
+@import '../../assets/styles/_mixins.scss';
+
+.lane {
+  max-width: 15rem;
+
+  &__header {
+    background-color: $secondary;
+    border-radius: 8px;
+    padding: 2rem;
+  }
+  &__name {
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+}

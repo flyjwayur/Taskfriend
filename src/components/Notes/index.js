@@ -13,6 +13,7 @@ const Notes = ({
   onAddNote,
   onAttachNoteToLane,
   onActivateEditNote,
+  onEditNote,
   onDeleteNote,
   onDetachNoteFromLane
 }) => {
@@ -34,7 +35,7 @@ const Notes = ({
       {notes.map(({ id, editing, task }) => (
         <li className="notes__note" key={id}>
           <Note onClick={() => onActivateEditNote(id)}>
-            <Editable id={id} editing={editing} value={task} />
+            <Editable id={id} editing={editing} value={task} onEdit={onEditNote} />
           </Note>
           <button type="button" onClick={e => deleteAndDetachNoteFromLane(id, e)}>
             x

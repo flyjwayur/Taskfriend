@@ -11,6 +11,8 @@ export const FETCH_LANE = 'FETCH_LANE';
 export const ADD_LANE = 'ADD_LANE';
 export const ATTACH_NOTE_TO_LANE = 'ATTACH_NOTE_TO_LANE';
 export const DETACH_NOTE_FROM_LANE = 'DETACH_NOTE_FROM_LANE';
+export const ACTIVATE_EDIT_LANE = 'ACTIVATE_EDIT_LANE';
+export const EDIT_LANE_NAME = 'EDIT_LANE_NAME';
 
 //Todo related action types
 export const ADD_TODO = 'ADD_TODO';

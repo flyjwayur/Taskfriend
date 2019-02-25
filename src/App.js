@@ -5,14 +5,12 @@ import TodoApp from './components/TodoApp';
 import Lanes from './components/Lanes';
 import Button from './components/Button';
 import { addLane } from './store/actions/addLaneAction';
-import notes from './api/notes';
 
 import './App.css';
 
 class App extends Component {
   render() {
     const { onAddLane } = this.props;
-    const taskNotesIds = notes.map(taskNote => taskNote.id);
 
     return (
       <div>
