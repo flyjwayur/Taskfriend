@@ -7,8 +7,8 @@
   padding: 0.75rem;
   border: 2px solid $primary;
   color: $primary;
-  border-radius: 50%;
   transition: all 0.2s;
+  margin: 1rem;
   cursor: pointer;
 
   /* Pseudo-classes */
@@ -20,6 +20,15 @@
 
   &:focus {
     outline: none;
+  }
+
+  /* Shape */
+  &--square {
+    border-radius: 10px;
+  }
+
+  &--round {
+    border-radius: 50%;
   }
 
   /* Size */
@@ -43,6 +52,10 @@
     @include color($primary, $white);
   }
 
+  &--white {
+    @include color($white, $primary);
+  }
+
   /* Variant */
   &--contained {
     &:hover {
@@ -51,8 +64,7 @@
   }
 
   &--outlined {
-    border: 1px solid $transparent-black-50;
-    background-color: transparent;
+    border: 2px solid $primary;
 
     &:hover {
       border-color: $primary;

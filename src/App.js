@@ -16,13 +16,13 @@ class App extends Component {
       <div>
         <Button
           type="button"
-          label="+"
-          size="md"
+          label="+ Add new lane"
+          shape="square"
+          color="primary"
           variant="outlined"
+          size="md"
           onClick={() => onAddLane('New Lane', [])}
-        >
-          +
-        </Button>
+        />
         <Lanes />
         <TodoApp />
       </div>

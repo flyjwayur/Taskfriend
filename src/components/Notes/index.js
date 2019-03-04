@@ -42,12 +42,15 @@ const Notes = ({
           </button>
         </li>
       ))}
+
       <Button
         type="button"
         label="+"
+        shape="round"
+        color="white"
+        variant="outlined"
         size="md"
         onClick={e => addAndAttachItToLane(e)}
-        variant="outlined"
       />
     </ul>
   );

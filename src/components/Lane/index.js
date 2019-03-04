@@ -10,6 +10,8 @@ import { editNote } from '../../store/actions/editNoteAction';
 import { attachNoteToLane } from '../../store/actions/attachNoteToLaneAction';
 import { detachNoteFromLane } from '../../store/actions/detachNoteFromLaneAction';
 
+import './styles.scss';
+
 const Lane = ({
   lane,
   notes,

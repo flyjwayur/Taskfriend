@@ -1,15 +1,13 @@
 @import '../../assets/styles/_variables.scss';
 @import '../../assets/styles/_mixins.scss';
 
-.lane {
+.laneHeader {
   max-width: 15rem;
+  background-color: $secondary;
+  border-radius: 8px;
+  padding: 1rem;
 
-  &__header {
-    background-color: $secondary;
-    border-radius: 8px;
-    padding: 2rem;
-  }
-  &__name {
+  &__text {
     text-transform: uppercase;
     font-weight: 700;
   }

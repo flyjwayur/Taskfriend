@@ -11,9 +11,9 @@ const LaneHeader = ({ lane, onActivateEditLane, onEditLaneName }) => {
   console.log('lane from header', lane.editing);
   const laneId = lane.id;
   return (
-    <div className="lane__header" onClick={() => onActivateEditLane(laneId)}>
+    <div className="laneHeader" onClick={() => onActivateEditLane(laneId)}>
       <Editable
-        className="lane__name"
+        className="laneHeader__text"
         editing={lane.editing}
         value={lane.name}
         id={lane.id}

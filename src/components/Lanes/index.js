@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Lane from '../Lane';
+import './styles.scss';
 
 const Lanes = ({ lanes }) => {
   return (
