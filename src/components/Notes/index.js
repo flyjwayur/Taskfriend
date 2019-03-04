@@ -1,58 +1,59 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import uuid from 'uuid';
 
-import Note from '../Note/index';
-import Editable from '../Editable/index';
-import Button from '../Button/index';
-import { deleteTaskNote } from '../../store/actions/deleteTaskNoteAction';
-import { addTaskNote } from '../../store/actions/addTaskNoteAction';
-import { activateEditTaskNote } from '../../store/actions/activateEditTaskNoteAction';
+import Note from '../Note';
+import Editable from '../Editable';
+import Button from '../Button';
 
 import './styles.scss';
 
-const Notes = ({ taskNotes, onAddTaskNote, onActivateEditTaskNote, onDeleteTaskNote }) => {
+const Notes = ({
+  laneId,
+  notes,
+  onAddNote,
+  onAttachNoteToLane,
+  onActivateEditNote,
+  onEditNote,
+  onDeleteNote,
+  onDetachNoteFromLane
+}) => {
+  const noteId = uuid.v4();
+  const addAndAttachItToLane = e => {
+    e.stopPropagation();
+    onAddNote(noteId, 'New task wow');
+    onAttachNoteToLane(laneId, noteId);
+  };
+
+  const deleteAndDetachNoteFromLane = (noteId, e) => {
+    e.stopPropagation();
+    onDeleteNote(noteId);
+    onDetachNoteFromLane(laneId, noteId);
+  };
+
   return (
     <ul className="notes">
-      {taskNotes.map(({ id, editing, task }) => (
+      {notes.map(({ id, editing, task }) => (
         <li className="notes__note" key={id}>
-          <Note onClick={() => onActivateEditTaskNote(id)}>
-            <Editable id={id} editing={editing} value={task} />
+          <Note onClick={() => onActivateEditNote(id)}>
+            <Editable id={id} editing={editing} value={task} onEdit={onEditNote} />
           </Note>
-          <button type="button" onClick={() => onDeleteTaskNote(id)}>
+          <button type="button" onClick={e => deleteAndDetachNoteFromLane(id, e)}>
             x
           </button>
         </li>
       ))}
+
       <Button
         type="button"
         label="+"
-        size="md"
-        onClick={() => onAddTaskNote('New task wow')}
+        shape="round"
+        color="white"
         variant="outlined"
+        size="md"
+        onClick={e => addAndAttachItToLane(e)}
       />
     </ul>
   );
 };
 
-const mapStateToNotesProps = state => {
-  return { taskNotes: state.taskNotes };
-};
-
-const mapDispatchToNotesProps = dispatch => {
-  return {
-    onAddTaskNote: task => {
-      dispatch(addTaskNote(task));
-    },
-    onActivateEditTaskNote: id => {
-      dispatch(activateEditTaskNote(id));
-    },
-    onDeleteTaskNote: id => {
-      dispatch(deleteTaskNote(id));
-    }
-  };
-};
-
-export default connect(
-  mapStateToNotesProps,
-  mapDispatchToNotesProps
-)(Notes);
+export default Notes;

@@ -1,5 +1,5 @@
 import React from 'react';
-import FilterLink from './FilterLink/index';
+import FilterLink from './FilterLink';
 
 const TodoFilterLinks = () => {
   return (

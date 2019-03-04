@@ -1,18 +1,44 @@
 import React, { Component } from 'react';
-import Notes from './components/Notes/index';
-import TodoApp from './components/TodoApp/index';
+import { connect } from 'react-redux';
+
+import TodoApp from './components/TodoApp';
+import Lanes from './components/Lanes';
+import Button from './components/Button';
+import { addLane } from './store/actions/addLaneAction';
 
 import './App.css';
 
 class App extends Component {
   render() {
+    const { onAddLane } = this.props;
+
     return (
       <div>
-        <Notes />
+        <Button
+          type="button"
+          label="+ Add new lane"
+          shape="square"
+          color="primary"
+          variant="outlined"
+          size="md"
+          onClick={() => onAddLane('New Lane', [])}
+        />
+        <Lanes />
         <TodoApp />
       </div>
     );
   }
 }
 
-export default App;
+const mapDispatchToLanesProps = dispatch => {
+  return {
+    onAddLane: (name, taskNotes) => {
+      dispatch(addLane(name, taskNotes));
+    }
+  };
+};
+
+export default connect(
+  null,
+  mapDispatchToLanesProps
+)(App);

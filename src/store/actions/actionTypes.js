@@ -1,9 +1,18 @@
 //Task management related action types
-export const FETCH_TASKNOTE = 'FETCH_TASKNOTE';
-export const ADD_TASKNOTE = 'ADD_TASKNOTE';
-export const ACTIVATE_EDIT_TASKNOTE = 'ACTIVATE_EDIT_TASKNOTE';
-export const EDIT_TASKNOTE = 'EDIT_TASKNOTE';
-export const DELETE_TASKNOTE = 'DELETE_TASKNOTE';
+//Task note
+export const FETCH_NOTE = 'FETCH_NOTE';
+export const ADD_NOTE = 'ADD_NOTE';
+export const ACTIVATE_EDIT_NOTE = 'ACTIVATE_EDIT_NOTE';
+export const EDIT_NOTE = 'EDIT_NOTE';
+export const DELETE_NOTE = 'DELETE_NOTE';
+
+//Task lane
+export const FETCH_LANE = 'FETCH_LANE';
+export const ADD_LANE = 'ADD_LANE';
+export const ATTACH_NOTE_TO_LANE = 'ATTACH_NOTE_TO_LANE';
+export const DETACH_NOTE_FROM_LANE = 'DETACH_NOTE_FROM_LANE';
+export const ACTIVATE_EDIT_LANE = 'ACTIVATE_EDIT_LANE';
+export const EDIT_LANE_NAME = 'EDIT_LANE_NAME';
 
 //Todo related action types
 export const ADD_TODO = 'ADD_TODO';

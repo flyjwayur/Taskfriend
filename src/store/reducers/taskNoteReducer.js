@@ -1,19 +1,12 @@
-import {
-  FETCH_TASKNOTE,
-  ADD_TASKNOTE,
-  ACTIVATE_EDIT_TASKNOTE,
-  EDIT_TASKNOTE,
-  DELETE_TASKNOTE
-} from '../actions/actionTypes';
-import notes from '../../api/notes';
+import { ADD_NOTE, ACTIVATE_EDIT_NOTE, EDIT_NOTE, DELETE_NOTE } from '../actions/actionTypes';
 
-const initialTaskNoteState = notes;
+// import notes from '../../api/notes';
 
-export const taskNotes = (state = initialTaskNoteState, action) => {
+const initialNoteState = [];
+
+export const notes = (state = initialNoteState, action) => {
   switch (action.type) {
-    case FETCH_TASKNOTE:
-      return [...state, action.taskNotes];
-    case ADD_TASKNOTE:
+    case ADD_NOTE:
       return [
         ...state,
         {
@@ -21,14 +14,14 @@ export const taskNotes = (state = initialTaskNoteState, action) => {
           task: action.task
         }
       ];
-    case ACTIVATE_EDIT_TASKNOTE:
+    case ACTIVATE_EDIT_NOTE:
       return state.map(note => {
         if (note.id === action.id) {
           note.editing = true;
         }
         return note;
       });
-    case EDIT_TASKNOTE:
+    case EDIT_NOTE:
       return state.map(note => {
         if (note.id === action.id) {
           note.editing = false;
@@ -36,17 +29,14 @@ export const taskNotes = (state = initialTaskNoteState, action) => {
         }
         return note;
       });
-    case DELETE_TASKNOTE:
-      const taskNoteId = action.id;
+    case DELETE_NOTE:
+      const noteId = action.id;
       //1st solution:
-      const indexOfTaskNote = state.findIndex(taskNote => taskNote.id === taskNoteId);
+      const indexOfNote = state.findIndex(note => note.id === noteId);
       //2nd solution:
-      // const taskNotesAfterDelete = state.filter(taskNote => taskNote.id !== taskNoteId);
-      // return taskNotesAfterDelete;
-      return [
-        ...state.slice(0, indexOfTaskNote),
-        ...state.slice(indexOfTaskNote + 1, state.length)
-      ];
+      // const notesAfterDelete = state.filter(note => note.id !== noteId);
+      // return notesAfterDelete;
+      return [...state.slice(0, indexOfNote), ...state.slice(indexOfNote + 1, state.length)];
     default:
       return state;
   }
