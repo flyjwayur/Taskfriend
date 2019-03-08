@@ -3,16 +3,13 @@
 
 .editable {
   &__value {
-    display: inline-block;
+    display: block;
     @include font-size-m;
   }
 
   &__edit {
+    width: 100%;
     display: block;
     @include font-size-m;
-
-    &:focus {
-      outline: none;
-    }
   }
 }

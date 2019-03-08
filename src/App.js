@@ -9,9 +9,12 @@ import { addLane } from './store/actions/addLaneAction';
 import './App.css';
 
 class App extends Component {
+  state = {
+    editing: false
+  };
+
   render() {
     const { onAddLane } = this.props;
-
     return (
       <div>
         <Button
@@ -21,7 +24,7 @@ class App extends Component {
           color="primary"
           variant="outlined"
           size="md"
-          onClick={() => onAddLane('New Lane', [])}
+          onClick={() => onAddLane('New Lane', [], this.state.editing)}
         />
         <Lanes />
         <TodoApp />
@@ -32,8 +35,8 @@ class App extends Component {
 
 const mapDispatchToLanesProps = dispatch => {
   return {
-    onAddLane: (name, taskNotes) => {
-      dispatch(addLane(name, taskNotes));
+    onAddLane: (name, taskNotes, editing) => {
+      dispatch(addLane(name, taskNotes, editing));
     }
   };
 };

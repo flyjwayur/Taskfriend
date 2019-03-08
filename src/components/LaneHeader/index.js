@@ -1,33 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 
 import Editable from '../Editable';
-import { activateEditLane } from '../../store/actions/activateEditLaneAction';
+import LaneHeaderText from './LaneHeaderText/index';
 import { editLaneName } from '../../store/actions/editLaneName';
 
 import './styles.scss';
 
-const LaneHeader = ({ lane, onActivateEditLane, onEditLaneName }) => {
-  console.log('lane from header', lane.editing);
-  const laneId = lane.id;
+//React Hook
+function LaneHeader({ id, name, onEditLaneName }) {
+  const [editing, setEditing] = useState(false);
+
+  function handleActivateEditing() {
+    setEditing(true);
+  }
+
+  function handleDeactivateEditing() {
+    setEditing(false);
+  }
+
   return (
-    <div className="laneHeader" onClick={() => onActivateEditLane(laneId)}>
-      <Editable
-        className="laneHeader__text"
-        editing={lane.editing}
-        value={lane.name}
-        id={lane.id}
-        onEdit={onEditLaneName}
-      />
+    <div className="laneHeader">
+      <LaneHeaderText onClick={() => handleActivateEditing()}>
+        <Editable
+          className="laneHeader__text"
+          value={name}
+          id={id}
+          onEdit={onEditLaneName}
+          editing={editing}
+          handleDeactivateEditing={handleDeactivateEditing}
+        />
+      </LaneHeaderText>
     </div>
   );
-};
+}
 
 const mapDispatchToLaneHeaderProps = dispatch => {
   return {
-    onActivateEditLane: id => {
-      dispatch(activateEditLane(id));
-    },
     onEditLaneName: (id, name) => {
       dispatch(editLaneName(id, name));
     }

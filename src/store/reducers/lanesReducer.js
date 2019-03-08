@@ -2,7 +2,6 @@ import {
   ADD_LANE,
   ATTACH_NOTE_TO_LANE,
   DETACH_NOTE_FROM_LANE,
-  ACTIVATE_EDIT_LANE,
   EDIT_LANE_NAME
 } from '../actions/actionTypes';
 
@@ -17,7 +16,9 @@ export const lanes = (state = initialLanesState, action) => {
       //   //Add Lane
       //   {
       //     id: action.id,
-      //     name: action.name
+      //     name: action.name,
+      //     notes: action.notes,
+      //     editing: action.editing,
       //   }
       // ];
       //2nd solution:
@@ -25,7 +26,8 @@ export const lanes = (state = initialLanesState, action) => {
         {
           id: action.id,
           name: action.name,
-          notes: action.notes
+          notes: action.notes,
+          editing: action.editing
         }
       ]);
     case ATTACH_NOTE_TO_LANE:
@@ -47,21 +49,10 @@ export const lanes = (state = initialLanesState, action) => {
         }
         return lane;
       });
-    case ACTIVATE_EDIT_LANE:
-      return state.map(lane => {
-        if (lane.id === action.id) {
-          lane.editing = true;
-          console.log('lane.editing', lane.editing);
-        }
-        return lane;
-      });
     case EDIT_LANE_NAME:
-      console.log('edit reducer');
       return state.map(lane => {
         if (lane.id === action.id) {
-          lane.editing = false;
           lane.name = action.name;
-          console.log('lane.editing', lane.editing, 'lane.name', lane.name);
         }
         return lane;
       });
