@@ -1,4 +1,4 @@
-import { ADD_NOTE, ACTIVATE_EDIT_NOTE, EDIT_NOTE, DELETE_NOTE } from '../actions/actionTypes';
+import { ADD_NOTE, EDIT_NOTE, DELETE_NOTE } from '../actions/actionTypes';
 
 // import notes from '../../api/notes';
 
@@ -11,20 +11,13 @@ export const notes = (state = initialNoteState, action) => {
         ...state,
         {
           id: action.id,
-          task: action.task
+          task: action.task,
+          editing: action.editing
         }
       ];
-    case ACTIVATE_EDIT_NOTE:
-      return state.map(note => {
-        if (note.id === action.id) {
-          note.editing = true;
-        }
-        return note;
-      });
     case EDIT_NOTE:
       return state.map(note => {
         if (note.id === action.id) {
-          note.editing = false;
           note.task = action.task;
         }
         return note;

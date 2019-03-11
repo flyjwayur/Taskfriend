@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import uuid from 'uuid';
 
 import Note from '../Note';
@@ -12,11 +12,20 @@ const Notes = ({
   notes,
   onAddNote,
   onAttachNoteToLane,
-  onActivateEditNote,
   onEditNote,
   onDeleteNote,
   onDetachNoteFromLane
 }) => {
+  const [editing, setEditing] = useState(false);
+
+  function handleActivateEditing() {
+    setEditing(true);
+  }
+
+  function handleDeactivateEditing() {
+    setEditing(false);
+  }
+
   const noteId = uuid.v4();
   const addAndAttachItToLane = e => {
     e.stopPropagation();
@@ -32,10 +41,16 @@ const Notes = ({
 
   return (
     <ul className="notes">
-      {notes.map(({ id, editing, task }) => (
+      {notes.map(({ id, task }) => (
         <li className="notes__note" key={id}>
-          <Note onClick={() => onActivateEditNote(id)}>
-            <Editable id={id} editing={editing} value={task} onEdit={onEditNote} />
+          <Note handleActivateEditing={handleActivateEditing}>
+            <Editable
+              id={id}
+              editing={editing}
+              value={task}
+              onEdit={onEditNote}
+              handleDeactivateEditing={handleDeactivateEditing}
+            />
           </Note>
           <button type="button" onClick={e => deleteAndDetachNoteFromLane(id, e)}>
             x

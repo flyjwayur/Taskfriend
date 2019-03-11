@@ -5,7 +5,6 @@ import Notes from '../Notes';
 import LaneHeader from '../LaneHeader';
 import { deleteNote } from '../../store/actions/deleteNoteAction';
 import { addNote } from '../../store/actions/addNoteAction';
-import { activateEditNote } from '../../store/actions/activateEditNoteAction';
 import { editNote } from '../../store/actions/editNoteAction';
 import { attachNoteToLane } from '../../store/actions/attachNoteToLaneAction';
 import { detachNoteFromLane } from '../../store/actions/detachNoteFromLaneAction';
@@ -13,10 +12,12 @@ import { detachNoteFromLane } from '../../store/actions/detachNoteFromLaneAction
 import './styles.scss';
 
 const Lane = ({
-  lane,
+  id,
+  name,
+  editing,
+  laneNoteIds,
   notes,
   onAddNote,
-  onActivateEditNote,
   onEditNote,
   onDeleteNote,
   onAttachNoteToLane,
@@ -25,13 +26,12 @@ const Lane = ({
 }) => {
   return (
     <div {...props}>
-      <LaneHeader lane={lane} />
+      <LaneHeader id={id} name={name} editing={editing} />
       <Notes
-        laneId={lane.id}
-        notes={filteredNotesById(notes, lane.notes)}
+        laneId={id}
+        notes={filteredNotesById(notes, laneNoteIds)}
         onAddNote={onAddNote}
         onAttachNoteToLane={onAttachNoteToLane}
-        onActivateEditNote={onActivateEditNote}
         onEditNote={onEditNote}
         onDeleteNote={onDeleteNote}
         onDetachNoteFromLane={onDetachNoteFromLane}
@@ -68,11 +68,8 @@ const mapStateToNotesProps = state => {
 
 const mapDispatchToNotesProps = dispatch => {
   return {
-    onAddNote: (id, task) => {
-      dispatch(addNote(id, task));
-    },
-    onActivateEditNote: id => {
-      dispatch(activateEditNote(id));
+    onAddNote: (id, task, editing) => {
+      dispatch(addNote(id, task, editing));
     },
     onEditNote: (id, task) => {
       dispatch(editNote(id, task));

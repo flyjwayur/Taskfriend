@@ -1,9 +1,9 @@
 import React from 'react';
 import './styles.scss';
 
-const note = ({ children, ...props }) => {
+const note = ({ children, handleActivateEditing, ...props }) => {
   return (
-    <div className="note" {...props}>
+    <div className="note" {...props} onClick={() => handleActivateEditing()}>
       {children}
     </div>
   );
