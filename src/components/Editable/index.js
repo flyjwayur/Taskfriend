@@ -32,7 +32,7 @@ class Edit extends Component {
     const { value, className } = this.props;
 
     return (
-      <input
+      <textarea
         type="text"
         autoFocus
         defaultValue={value}
