@@ -13,7 +13,10 @@ import { detachNoteFromLane } from '../../store/actions/detachNoteFromLaneAction
 import './styles.scss';
 
 const Lane = ({
-  lane,
+  id,
+  name,
+  editing,
+  notesInLane,
   notes,
   onAddNote,
   onActivateEditNote,
@@ -25,10 +28,10 @@ const Lane = ({
 }) => {
   return (
     <div {...props}>
-      <LaneHeader lane={lane} />
+      <LaneHeader id={id} name={name} editing={editing} />
       <Notes
-        laneId={lane.id}
-        notes={filteredNotesById(notes, lane.notes)}
+        laneId={id}
+        notes={filteredNotesById(notes, notesInLane)}
         onAddNote={onAddNote}
         onAttachNoteToLane={onAttachNoteToLane}
         onActivateEditNote={onActivateEditNote}

@@ -7,16 +7,14 @@ import { editLaneName } from '../../store/actions/editLaneName';
 
 import './styles.scss';
 
-const LaneHeader = ({ lane, onActivateEditLane, onEditLaneName }) => {
-  console.log('lane from header', lane.editing);
-  const laneId = lane.id;
+const LaneHeader = ({ id, name, editing, onActivateEditLane, onEditLaneName }) => {
   return (
-    <div className="laneHeader" onClick={() => onActivateEditLane(laneId)}>
+    <div className="laneHeader" onClick={() => onActivateEditLane(id)}>
       <Editable
         className="laneHeader__text"
-        editing={lane.editing}
-        value={lane.name}
-        id={lane.id}
+        editing={editing}
+        value={name}
+        id={id}
         onEdit={onEditLaneName}
       />
     </div>

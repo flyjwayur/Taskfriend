@@ -4,10 +4,7 @@ import classNames from 'classnames';
 import './styles.scss';
 
 const Editable = ({ editing, id, value, className, onEdit }) => {
-  console.log('editing', editing);
-  console.log('id', id, 'value', value, 'onEdit', onEdit);
   if (editing) {
-    console.log('condition');
     return <Editable.Edit id={id} value={value} className={className} onEdit={onEdit} />;
   }
   return <Editable.Value className={className} value={value} />;

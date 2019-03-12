@@ -7,8 +7,15 @@ import './styles.scss';
 const Lanes = ({ lanes }) => {
   return (
     <div className="lanes">
-      {lanes.map(lane => (
-        <Lane className="lanes__lane" key={lane.id} lane={lane} />
+      {lanes.map(({ id, name, notes, editing }) => (
+        <Lane
+          className="lanes__lane"
+          key={id}
+          id={id}
+          name={name}
+          notesInLane={notes}
+          editing={editing}
+        />
       ))}
     </div>
   );

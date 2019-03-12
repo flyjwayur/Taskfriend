@@ -51,17 +51,14 @@ export const lanes = (state = initialLanesState, action) => {
       return state.map(lane => {
         if (lane.id === action.id) {
           lane.editing = true;
-          console.log('lane.editing', lane.editing);
         }
         return lane;
       });
     case EDIT_LANE_NAME:
-      console.log('edit reducer');
       return state.map(lane => {
         if (lane.id === action.id) {
           lane.editing = false;
           lane.name = action.name;
-          console.log('lane.editing', lane.editing, 'lane.name', lane.name);
         }
         return lane;
       });
