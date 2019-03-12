@@ -48,3 +48,11 @@ Clone the project:
 > yarn install
 > yarn start
 ```
+
+## 5. Development Environment
+
+- [Storybook](https://storybook.js.org/docs/guides/guide-react/)
+
+```
+> yarn storybook
+```
