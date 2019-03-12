@@ -8,7 +8,10 @@
   }
 
   &__edit {
-    display: block;
+    display: inline-block;
+    //Handle to display the words inside of the box
+    overflow-wrap: break-word;
+    white-space: initial;
     @include font-size-m;
 
     &:focus {

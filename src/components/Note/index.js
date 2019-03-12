@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles.scss';
 
-const note = ({ children, ...props }) => {
+const Note = ({ children, ...props }) => {
   return (
     <div className="note" {...props}>
       {children}
@@ -9,4 +9,4 @@ const note = ({ children, ...props }) => {
   );
 };
 
-export default note;
+export default Note;

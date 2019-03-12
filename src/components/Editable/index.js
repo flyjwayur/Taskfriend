@@ -33,11 +33,10 @@ class Edit extends Component {
 
     return (
       <textarea
-        type="text"
-        autoFocus
         defaultValue={value}
         onBlur={this.finishEdit}
         onKeyPress={this.checkEnter}
+        placeholder="Enter a title for this card"
         className={classNames('editable__edit', className)}
       />
     );
