@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { customInput, customSelect } from '../Fields';
-import { validate } from '../../../validation';
+import { required, email, minLength2, minLength8 } from '../../../validation';
 
 class SignUpForm extends Component {
   render() {
@@ -15,6 +15,7 @@ class SignUpForm extends Component {
             type="text"
             label="Name"
             placeholder="e.g., Hyesoo"
+            validate={[required, minLength2]}
           />
         </div>
         <div>
@@ -24,6 +25,7 @@ class SignUpForm extends Component {
             type="email"
             label="Email"
             placeholder="e.g., hyesoo@taskfriend.com"
+            validate={[required, email]}
           />
         </div>
         <div>
@@ -33,6 +35,7 @@ class SignUpForm extends Component {
             type="password"
             label="Password"
             placeholder="e.g., *******"
+            validate={[required, minLength8]}
           />
         </div>
         <div>
@@ -54,8 +57,7 @@ class SignUpForm extends Component {
 
 //Decorate Sign up form with name
 SignUpForm = reduxForm({
-  form: 'register',
-  validate
+  form: 'register'
 })(SignUpForm);
 
 export default SignUpForm;
