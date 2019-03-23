@@ -12,6 +12,8 @@ const minLength = min => value =>
 export const minLength2 = minLength(2);
 export const minLength8 = minLength(8);
 
+export const matchesPassword = (value, allValues) =>
+  value === allValues.password ? undefined : 'Passwords must match';
 // 2nd way) Synchronous validation in Redux form
 // export const validate = values => {
 //   const errors = {};
