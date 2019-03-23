@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
-import { Field, reduxForm, SubmissionError } from 'redux-form';
+import { Field, reduxForm } from 'redux-form';
 import { customInput, customSelect } from '../Fields';
-import { required, email, minLength2, minLength8, matchesPassword } from '../../../validation';
+import {
+  required,
+  email,
+  minLength2,
+  minLength8,
+  matchesPassword,
+  asyncValidate
+} from '../../../validation';
 import './styles.scss';
 
 class SignUpForm extends Component {
@@ -64,7 +71,9 @@ class SignUpForm extends Component {
 
 //Decorate Sign up form with name
 SignUpForm = reduxForm({
-  form: 'register'
+  form: 'signUp',
+  asyncValidate,
+  asyncBlurFields: ['email']
 })(SignUpForm);
 
 export default SignUpForm;

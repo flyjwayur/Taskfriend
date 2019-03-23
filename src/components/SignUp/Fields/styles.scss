@@ -74,6 +74,25 @@
   &__invalid &__input:not([type='checkbox']) {
     border-color: $third;
   }
+
+  @keyframes blue-pulse {
+    0% {
+      border-color: $primary;
+    }
+    50% {
+      border-color: $lightGrey;
+    }
+    100% {
+      border-color: $primary;
+    }
+  }
+
+  &__asyncValidating &__input:not([type='checkbox']) {
+    border-color: $primary;
+    animation-name: blue-pulse;
+    animation-iteration-count: infinite;
+    animation-duration: 1.5s;
+  }
 }
 
 .customSelect {

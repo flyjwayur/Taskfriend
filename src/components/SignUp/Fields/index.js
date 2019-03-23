@@ -4,6 +4,9 @@ import classNames from 'classnames';
 import './styles.scss';
 
 const getValidityClassName = meta => {
+  if (meta.asyncValidating) {
+    return 'customInput__asyncValidating';
+  }
   //When a user type, no style
   if (meta.active) {
     return;

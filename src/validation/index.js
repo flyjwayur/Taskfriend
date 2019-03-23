@@ -14,6 +14,17 @@ export const minLength8 = minLength(8);
 
 export const matchesPassword = (value, allValues) =>
   value === allValues.password ? undefined : 'Passwords must match';
+
+export const asyncValidate = values => {
+  const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+  return sleep(1000).then(() => {
+    if (['hyesoo@gmail.com', 'mario@gmail.com', 'moomin@gmail.com'].includes(values.email)) {
+      return Promise.reject({
+        email: 'The email already exists'
+      });
+    }
+  });
+};
 // 2nd way) Synchronous validation in Redux form
 // export const validate = values => {
 //   const errors = {};
