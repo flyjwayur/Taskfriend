@@ -2,19 +2,20 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { customInput, customSelect } from '../Fields';
 import { required, email, minLength2, minLength8 } from '../../../validation';
+import './styles.scss';
 
 class SignUpForm extends Component {
   render() {
     const { handleSubmit } = this.props;
     return (
-      <form onSubmit={handleSubmit}>
+      <form className="signUpForm" onSubmit={handleSubmit}>
         <div>
           <Field
             name="name"
             component={customInput}
             type="text"
             label="Name"
-            placeholder="e.g., Hyesoo"
+            // placeholder="e.g., Hyesoo"
             validate={[required, minLength2]}
           />
         </div>
@@ -24,7 +25,7 @@ class SignUpForm extends Component {
             component={customInput}
             type="email"
             label="Email"
-            placeholder="e.g., hyesoo@taskfriend.com"
+            // placeholder="e.g., hyesoo@taskfriend.com"
             validate={[required, email]}
           />
         </div>
@@ -34,7 +35,7 @@ class SignUpForm extends Component {
             component={customInput}
             type="password"
             label="Password"
-            placeholder="e.g., *******"
+            // placeholder="e.g., *******"
             validate={[required, minLength8]}
           />
         </div>
@@ -49,7 +50,9 @@ class SignUpForm extends Component {
             label="Sign up to newsletter?"
           />
         </div>
-        <button type="submit">Submit</button>
+        <button className="signUpForm__submit-button" type="submit">
+          Submit
+        </button>
       </form>
     );
   }
