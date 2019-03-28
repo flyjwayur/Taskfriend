@@ -1,0 +1,19 @@
+@import '../../../assets/styles/_variables.scss';
+
+.signUpForm {
+  max-width: 450px;
+  padding: 3rem 2rem;
+  margin: 0 auto;
+  border: solid 1px $lightGrey;
+  border-radius: 8px;
+
+  &__submit-button[type='submit'] {
+    width: 100%;
+    font-size: 20px;
+    background-color: $primary;
+    color: white;
+    border-radius: 8px;
+    padding: 0.5rem;
+    text-transform: uppercase;
+  }
+}

@@ -5,6 +5,7 @@ import TodoApp from './components/TodoApp';
 import Lanes from './components/Lanes';
 import Button from './components/Button';
 import { addLane } from './store/actions/addLaneAction';
+import SignUp from './components/SignUp';
 
 import './App.css';
 
@@ -25,6 +26,7 @@ class App extends Component {
         />
         <Lanes />
         <TodoApp />
+        <SignUp />
       </div>
     );
   }
