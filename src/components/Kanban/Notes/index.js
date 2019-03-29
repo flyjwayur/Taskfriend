@@ -3,7 +3,7 @@ import uuid from 'uuid';
 
 import Note from '../Note';
 import Editable from '../Editable';
-import Button from '../Button';
+import Button from '../../UI/Button';
 
 import './styles.scss';
 
