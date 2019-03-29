@@ -1,0 +1,20 @@
+@import '../../../../assets/styles/_variables.scss';
+@import '../../../../assets/styles/_mixins.scss';
+
+.laneHeaderText {
+  overflow: hidden;
+  padding: 0.5rem;
+  background-color: $transparent-white-50;
+  box-shadow: 0 0 0.3rem 0.03rem rgba(0, 0, 0, 0.3);
+  //To get min-height
+  display: inline-block;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  transition: 0.6s;
+
+  &:hover,
+  &:focus {
+    box-shadow: 0 0 0.3rem 0.03rem rgba(0, 0, 0, 0.7);
+  }
+}

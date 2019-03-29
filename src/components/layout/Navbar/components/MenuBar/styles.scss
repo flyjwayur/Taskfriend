@@ -1,0 +1,79 @@
+@import '../../../../../assets/styles/_variables.scss';
+@import '../../../../../assets/styles/_mixins.scss';
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $spacing-00-50 17px;
+  font-family: $font-family;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 3rem;
+  background-color: rgba($primary, 0.95);
+  z-index: 1;
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.6rem;
+    &__link {
+      text-decoration: none;
+      color: $secondary;
+      font-weight: 700;
+    }
+  }
+
+  &__links {
+    margin-right: $spacing-01;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 2.5rem;
+    width: 50%;
+    max-width: 900px;
+    align-items: center;
+    font-weight: 700;
+    list-style: none;
+    @include for-tablet-portrait-down {
+      display: none;
+    }
+  }
+
+  &__nav-link {
+    margin-left: $spacing-02;
+    padding-bottom: 0.3rem;
+    font-size: 1.1rem;
+    transition: all ease-in-out 0.3s;
+    @include underline($font-color: $white, $underline-color: lighten($third, 5%));
+
+    &:hover {
+      color: $secondary;
+    }
+    &--active {
+      color: lighten($secondary, 5%);
+    }
+  }
+
+  &__menu {
+    margin-right: $spacing-03;
+    @include font-size-l-xxx;
+    color: $secondary;
+    outline: none;
+    cursor: pointer;
+    transition: all ease-in-out 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+      transition: all ease-in-out 0.3s;
+    }
+  }
+}
+
+.mobile-menu__button {
+  display: none;
+  @include for-tablet-portrait-down {
+    display: initial;
+  }
+}

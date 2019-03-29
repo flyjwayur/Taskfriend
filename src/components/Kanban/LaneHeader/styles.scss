@@ -1,0 +1,17 @@
+@import '../../../assets/styles/_variables.scss';
+@import '../../../assets/styles/_mixins.scss';
+
+.laneHeader {
+  max-width: 15rem;
+  background-color: $secondary;
+  border-radius: 8px;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__text {
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+}

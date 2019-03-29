@@ -1,46 +1,37 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import { Route, Switch } from 'react-router-dom';
 
-import TodoApp from './components/TodoApp';
-import Lanes from './components/Lanes';
-import Button from './components/Button';
-import { addLane } from './store/actions/addLaneAction';
+import Navbar from './components/layout/Navbar/index';
+import Main from './components/layout/Main';
+import Landing from './components/layout/Landing.js';
+import Kanban from './components/Kanban';
+import TodoList from './components/TodoList';
 import SignUp from './components/SignUp';
+import Notfound from './components/NotFound/NotFound';
+
+import Footer from './components/layout/Footer';
 
 import './App.css';
 
 class App extends Component {
   render() {
-    const { onAddLane } = this.props;
-
     return (
       <div>
-        <Button
-          type="button"
-          label="+ Add new lane"
-          shape="square"
-          color="primary"
-          variant="outlined"
-          size="md"
-          onClick={() => onAddLane('New Lane', [])}
-        />
-        <Lanes />
-        <TodoApp />
-        <SignUp />
+        <Navbar />
+        <Main>
+          <Switch>
+            <Route exact path="/" component={Landing} />
+            <Route path="/kanban" component={Kanban} />
+            <Route path="/brainstorm" component={Landing} />
+            <Route path="/yourday" component={TodoList} />
+            <Route path="/signup" component={SignUp} />
+            <Route component={Notfound} />
+          </Switch>
+        </Main>
+        <Footer />
       </div>
     );
   }
 }
 
-const mapDispatchToLanesProps = dispatch => {
-  return {
-    onAddLane: (name, taskNotes) => {
-      dispatch(addLane(name, taskNotes));
-    }
-  };
-};
-
-export default connect(
-  null,
-  mapDispatchToLanesProps
-)(App);
+export default App;

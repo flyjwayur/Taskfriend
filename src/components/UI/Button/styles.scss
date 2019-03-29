@@ -1,0 +1,77 @@
+@import '../../../assets/styles/_variables.scss';
+@import '../../../assets/styles/_mixins.scss';
+
+.button {
+  display: inline-block;
+  text-align: center;
+  padding: 0.75rem;
+  border: 2px solid $primary;
+  color: $primary;
+  transition: all 0.2s;
+  margin: 1rem;
+  cursor: pointer;
+
+  /* Pseudo-classes */
+  &:hover,
+  &:active {
+    background-color: $primary;
+    color: $white;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  /* Shape */
+  &--square {
+    border-radius: 10px;
+  }
+
+  &--round {
+    border-radius: 50%;
+  }
+
+  /* Size */
+  &--sm {
+    @include size(2rem, 1rem, $spacing-00-75);
+    @include font-size-s;
+  }
+
+  &--md {
+    @include size(4rem, 1.5rem, $spacing-01);
+    @include font-size-m;
+  }
+
+  &--lg {
+    @include size(6rem, 2rem, $spacing-01-50);
+    @include font-size-l;
+  }
+
+  /* Colors */
+  &--primary {
+    @include color($primary, $white);
+  }
+
+  &--white {
+    @include color($white, $primary);
+  }
+
+  /* Variant */
+  &--contained {
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  &--outlined {
+    border: 2px solid $primary;
+
+    &:hover {
+      border-color: $primary;
+    }
+  }
+
+  &__label {
+    @include font-size-l;
+  }
+}
