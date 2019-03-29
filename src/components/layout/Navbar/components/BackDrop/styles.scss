@@ -1,0 +1,13 @@
+@import '../../../../../assets/styles/_variables.scss';
+@import '../../../../../assets/styles/_mixins.scss';
+
+.backdrop {
+  position: fixed;
+  display: block;
+  width: 100%;
+  min-height: 100vh;
+  top: 0;
+  right: 0;
+  background: linear-gradient(transparentize($primary, 0.25), transparentize($primary, 0.3));
+  z-index: 1;
+}
