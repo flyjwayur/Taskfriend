@@ -34,7 +34,13 @@ const Notes = ({
     <ul className="notes">
       {notes.map(({ id, editing, task }) => (
         <li className="notes__note" key={id}>
-          <Note onClick={() => onActivateEditNote(id)}>
+          <Note
+            id={id}
+            onClick={() => onActivateEditNote(id)}
+            onMove={({ sourceId, targetId }) => {
+              console.log('moving form', sourceId, 'to', targetId);
+            }}
+          >
             <Editable id={id} editing={editing} value={task} onEdit={onEditNote} />
           </Note>
           <button type="button" onClick={e => deleteAndDetachNoteFromLane(id, e)}>
