@@ -4,7 +4,14 @@ import { DragSource, DropTarget } from 'react-dnd';
 import ItemTypes from '../../constants/itemTypes';
 import './styles.scss';
 
-const Note = ({ connectDragSource, connectDropTarget, onMove, id, children, ...props }) => {
+const Note = ({
+  connectDragSource,
+  connectDropTarget,
+  onMoveNoteBetweenLanes,
+  id,
+  children,
+  ...props
+}) => {
   return compose(
     connectDragSource,
     connectDropTarget
@@ -28,7 +35,7 @@ const noteTarget = {
     const sourceProps = monitor.getItem();
     const sourceId = sourceProps.id;
     if (sourceId !== targetId) {
-      targetProps.onMove({ sourceId, targetId });
+      targetProps.onMoveNoteBetweenLanes({ sourceId, targetId });
     }
     console.log('dragging note', sourceProps, targetProps);
   }

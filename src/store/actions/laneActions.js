@@ -4,7 +4,8 @@ import {
   ATTACH_NOTE_TO_LANE,
   DETACH_NOTE_FROM_LANE,
   ACTIVATE_EDIT_LANE,
-  EDIT_LANE_NAME
+  EDIT_LANE_NAME,
+  MOVE_NOTE_BETWEEN_LANES
 } from '../actions/actionTypes';
 import uuid from 'uuid';
 
@@ -52,5 +53,13 @@ export const editLaneName = (id, name) => {
     type: EDIT_LANE_NAME,
     id,
     name
+  };
+};
+
+export const moveNoteBetweenLanes = (sourceId, targetId) => {
+  return {
+    type: MOVE_NOTE_BETWEEN_LANES,
+    sourceId,
+    targetId
   };
 };

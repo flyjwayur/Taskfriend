@@ -13,6 +13,7 @@ export const ATTACH_NOTE_TO_LANE = 'ATTACH_NOTE_TO_LANE';
 export const DETACH_NOTE_FROM_LANE = 'DETACH_NOTE_FROM_LANE';
 export const ACTIVATE_EDIT_LANE = 'ACTIVATE_EDIT_LANE';
 export const EDIT_LANE_NAME = 'EDIT_LANE_NAME';
+export const MOVE_NOTE_BETWEEN_LANES = 'MOVE_NOTE_BETWEEN_LANES';
 
 //Todo related action types
 export const ADD_TODO = 'ADD_TODO';

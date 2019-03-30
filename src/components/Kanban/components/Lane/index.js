@@ -9,6 +9,7 @@ import { activateEditNote } from '../../../../store/actions/noteActions';
 import { editNote } from '../../../../store/actions/noteActions';
 import { attachNoteToLane } from '../../../../store/actions/laneActions';
 import { detachNoteFromLane } from '../../../../store/actions/laneActions';
+import { moveNoteBetweenLanes } from '../../../../store/actions/laneActions';
 
 import './styles.scss';
 
@@ -24,6 +25,7 @@ const Lane = ({
   onDeleteNote,
   onAttachNoteToLane,
   onDetachNoteFromLane,
+  onMoveNoteBetweenLanes,
   ...props
 }) => {
   return (
@@ -38,6 +40,7 @@ const Lane = ({
         onEditNote={onEditNote}
         onDeleteNote={onDeleteNote}
         onDetachNoteFromLane={onDetachNoteFromLane}
+        onMoveNoteBetweenLanes={onMoveNoteBetweenLanes}
       />
     </div>
   );
@@ -88,6 +91,9 @@ const mapDispatchToNotesProps = dispatch => {
     },
     onDetachNoteFromLane: (laneId, noteId) => {
       dispatch(detachNoteFromLane(laneId, noteId));
+    },
+    onMoveNoteBetweenLanes: (sourceId, targetId) => {
+      dispatch(moveNoteBetweenLanes(sourceId, targetId));
     }
   };
 };

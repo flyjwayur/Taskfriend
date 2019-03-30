@@ -15,7 +15,8 @@ const Notes = ({
   onActivateEditNote,
   onEditNote,
   onDeleteNote,
-  onDetachNoteFromLane
+  onDetachNoteFromLane,
+  onMoveNoteBetweenLanes
 }) => {
   const noteId = uuid.v4();
   const addAndAttachItToLane = e => {
@@ -37,9 +38,7 @@ const Notes = ({
           <Note
             id={id}
             onClick={() => onActivateEditNote(id)}
-            onMove={({ sourceId, targetId }) => {
-              console.log('moving form', sourceId, 'to', targetId);
-            }}
+            onMoveNoteBetweenLanes={onMoveNoteBetweenLanes}
           >
             <Editable id={id} editing={editing} value={task} onEdit={onEditNote} />
           </Note>

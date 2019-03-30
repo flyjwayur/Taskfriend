@@ -3,7 +3,8 @@ import {
   ATTACH_NOTE_TO_LANE,
   DETACH_NOTE_FROM_LANE,
   ACTIVATE_EDIT_LANE,
-  EDIT_LANE_NAME
+  EDIT_LANE_NAME,
+  MOVE_NOTE_BETWEEN_LANES
 } from '../actions/actionTypes';
 
 const initialLanesState = [];
@@ -62,7 +63,9 @@ export const lanes = (state = initialLanesState, action) => {
         }
         return lane;
       });
-
+    case MOVE_NOTE_BETWEEN_LANES:
+      console.log('moving from', action.sourceId, 'to', action.targetId);
+      return state;
     default:
       return state;
   }
