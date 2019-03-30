@@ -6,7 +6,7 @@ import HTML5Backend from 'react-dnd-html5-backend';
 
 import Lanes from './components/Lanes';
 import Button from '../UI/Button';
-import { addLane } from '../../store/actions/addLaneAction';
+import { addLane } from '../../store/actions/laneActions';
 
 class Kanban extends Component {
   render() {

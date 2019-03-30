@@ -3,12 +3,12 @@ import { connect } from 'react-redux';
 
 import Notes from '../Notes';
 import LaneHeader from '../LaneHeader';
-import { deleteNote } from '../../../../store/actions/deleteNoteAction';
-import { addNote } from '../../../../store/actions/addNoteAction';
-import { activateEditNote } from '../../../../store/actions/activateEditNoteAction';
-import { editNote } from '../../../../store/actions/editNoteAction';
-import { attachNoteToLane } from '../../../../store/actions/attachNoteToLaneAction';
-import { detachNoteFromLane } from '../../../../store/actions/detachNoteFromLaneAction';
+import { deleteNote } from '../../../../store/actions/noteActions';
+import { addNote } from '../../../../store/actions/noteActions';
+import { activateEditNote } from '../../../../store/actions/noteActions';
+import { editNote } from '../../../../store/actions/noteActions';
+import { attachNoteToLane } from '../../../../store/actions/laneActions';
+import { detachNoteFromLane } from '../../../../store/actions/laneActions';
 
 import './styles.scss';
 

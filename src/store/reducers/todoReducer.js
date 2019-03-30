@@ -1,4 +1,4 @@
-import { VisibilityFilters } from '../actions/setVisibilityFilterAction';
+import { VisibilityFilters } from '../actions/todoActions';
 
 const todo = (state, action) => {
   switch (action.type) {
