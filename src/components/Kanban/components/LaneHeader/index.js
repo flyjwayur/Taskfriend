@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 
 import Editable from '../Editable';
 import LaneHeaderText from './LaneHeaderText';
-import { activateEditLane } from '../../../store/actions/activateEditLaneAction'
-import { editLaneName } from '../../../store/actions/editLaneName';
+import { activateEditLane } from '../../../../store/actions/activateEditLaneAction';
+import { editLaneName } from '../../../../store/actions/editLaneName';
 
 import './styles.scss';
 

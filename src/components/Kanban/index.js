@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
+import { DragDropContext } from 'react-dnd';
+import HTML5Backend from 'react-dnd-html5-backend';
 
-import Lanes from './Lanes';
+import Lanes from './components/Lanes';
 import Button from '../UI/Button';
 import { addLane } from '../../store/actions/addLaneAction';
 
@@ -34,7 +37,10 @@ const mapDispatchToLanesProps = dispatch => {
   };
 };
 
-export default connect(
-  null,
-  mapDispatchToLanesProps
+export default compose(
+  DragDropContext(HTML5Backend),
+  connect(
+    null,
+    mapDispatchToLanesProps
+  )
 )(Kanban);
